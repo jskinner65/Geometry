@@ -151,7 +151,12 @@ public class View extends JFrame implements ActionListener, KeyListener {
 	}
 	
 	public void moveBlocks() {
-		for (int i=0; i<(GAME_WIDTH-1); i++) {
+		moveBlocks(0);
+		randomBlocks(5);
+	}
+	
+	public int moveBlocks(int i) {
+		if(i<(GAME_WIDTH-1)) {
 			for (int j=0; j<GAME_HEIGHT; j++) {
 				
 				labels[j][i].setBackground(labels[j][i+1].getBackground());
@@ -159,8 +164,13 @@ public class View extends JFrame implements ActionListener, KeyListener {
 				labels[j][i].setVisible(true);
 
 			}
+			i++;
+			moveBlocks(i);
+			return GAME_WIDTH;
 		}
-		randomBlocks(5);
+		else {
+			return GAME_WIDTH;
+		}
 		
 	}
 	

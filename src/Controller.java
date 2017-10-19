@@ -74,10 +74,11 @@ public class Controller implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == 38) {  //FLY UP
 			view.jump(-1);
-			view.moveBlocks();
 		}
 		if (e.getKeyCode() == 40) {  //FLY DOWN
 			view.jump(1);
+		}
+		if (e.getKeyCode()!=38 && e.getKeyCode()!= 40) {
 			view.moveBlocks();
 		}
 	}
